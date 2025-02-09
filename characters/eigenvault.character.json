@@ -4,8 +4,6 @@
     "modelProvider": "openrouter",
     "settings": {
         "secrets": {
-            "OPENROUTER_API_KEY": "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",
-            "TELEGRAM_BOT_TOKEN": "7789011541:AAFK39ZshvxgmNDn2x-w6UCsBX284JOO5kQ"
         },
         "voice": {
             "model": "en_US-male-medium"
