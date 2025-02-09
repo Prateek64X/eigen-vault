@@ -1,192 +1,91 @@
-# Eliza 🤖
+Eigen Vault 🔐
 
-<div align="center">
-  <img src="./docs/static/img/eliza_banner.jpg" alt="Eliza Banner" width="100%" />
-</div>
+Eigen Vault is a secure AI-powered document storage and retrieval system integrated with Telegram. It allows users to upload documents via Telegram, verify transactions using EigenLayer AVS, and retrieve stored documents on demand.
 
-<div align="center">
+Features ✨
 
-📑 [Technical Report](https://arxiv.org/pdf/2501.06781) |  📖 [Documentation](https://elizaos.github.io/eliza/) | 🎯 [Examples](https://github.com/thejoven/awesome-eliza)
+🤖 AI-Powered Document Handling: Uses an AI agent to process and manage documents.
 
-</div>
+📲 Telegram Integration: Users interact with the system via a Telegram bot.
 
-## 🌍 README Translations
+🔐 Secure Storage: Documents are stored securely with transaction verification.
 
-[中文说明](i18n/readme/README_CN.md) | [日本語の説明](i18n/readme/README_JA.md) | [한국어 설명](i18n/readme/README_KOR.md) | [Persian](i18n/readme/README_FA.md) | [Français](i18n/readme/README_FR.md) | [Português](i18n/readme/README_PTBR.md) | [Türkçe](i18n/readme/README_TR.md) | [Русский](i18n/readme/README_RU.md) | [Español](i18n/readme/README_ES.md) | [Italiano](i18n/readme/README_IT.md) | [ไทย](i18n/readme/README_TH.md) | [Deutsch](i18n/readme/README_DE.md) | [Tiếng Việt](i18n/readme/README_VI.md) | [עִברִית](i18n/readme/README_HE.md) | [Tagalog](i18n/readme/README_TG.md) | [Polski](i18n/readme/README_PL.md) | [Arabic](i18n/readme/README_AR.md) | [Hungarian](i18n/readme/README_HU.md) | [Srpski](i18n/readme/README_RS.md) | [Română](i18n/readme/README_RO.md) | [Nederlands](i18n/readme/README_NL.md) | [Ελληνικά](i18n/readme/README_GR.md)
+✅ EigenLayer AVS Verification: Ensures authenticity and security of document transactions.
 
-## 🚩 Overview
+⚡ Instant Retrieval: Users can request and retrieve stored documents via Telegram.
 
-<div align="center">
-  <img src="./docs/static/img/eliza_diagram.png" alt="Eliza Diagram" width="100%" />
-</div>
+Tech Stack 🛠️
 
-## ✨ Features
+AI Agent: Handles document processing and interactions.
 
-- 🛠️ Full-featured Discord, X (Twitter) and Telegram connectors
-- 🔗 Support for every model (Llama, Grok, OpenAI, Anthropic, Gemini, etc.)
-- 👥 Multi-agent and room support
-- 📚 Easily ingest and interact with your documents
-- 💾 Retrievable memory and document store
-- 🚀 Highly extensible - create your own actions and clients
-- 📦 Just works!
+Telegram Bot: Facilitates communication with users.
 
-## Video Tutorials
+EigenLayer AVS: Verifies and secures document transactions.
 
-[AI Agent Dev School](https://www.youtube.com/watch?v=ArptLpQiKfI&list=PLx5pnFXdPTRzWla0RaOxALTSTnVq53fKL)
+Backend: Node.js with Express.
 
-## 🎯 Use Cases
+Database: PostgreSQL / IPFS (for decentralized storage, if applicable).
 
-- 🤖 Chatbots
-- 🕵️ Autonomous Agents
-- 📈 Business Process Handling
-- 🎮 Video Game NPCs
-- 🧠 Trading
+Setup Instructions ⚙️
 
-## 🚀 Quick Start
+Prerequisites
 
-### Prerequisites
+Ensure you have the following installed:
 
-- [Python 2.7+](https://www.python.org/downloads/)
-- [Node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-- [pnpm](https://pnpm.io/installation)
+Node.js (>=16.x)
 
-> **Note for Windows Users:** [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual) is required.
+PostgreSQL (if using a relational database)
 
-### Use the Starter (Recommended)
+Telegram Bot API token
 
-```bash
-git clone https://github.com/elizaos/eliza-starter.git
-cd eliza-starter
-cp .env.example .env
-pnpm i && pnpm build && pnpm start
-```
+EigenLayer AVS access
 
-### Manually Start Eliza (Only recommended if you know what you are doing)
+pnpm package manager
 
-#### Checkout the latest release
+Installation 📥
 
-```bash
-# Clone the repository
-git clone https://github.com/elizaos/eliza.git
+Clone the repository:
 
-# This project iterates fast, so we recommend checking out the latest release
-git checkout $(git describe --tags --abbrev=0)
-# If the above doesn't checkout the latest release, this should work:
-# git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
-```
+git clone https://github.com/Prateek64X/eigen-vault.git
+cd eigen-vault
 
-#### Edit the .env file
+Install dependencies:
 
-Copy .env.example to .env and fill in the appropriate values.
-
-```
-cp .env.example .env
-```
-
-Note: .env is optional. If you're planning to run multiple distinct agents, you can pass secrets through the character JSON
-
-#### Start Eliza
-
-```bash
 pnpm i
-pnpm build
-pnpm start
 
-# The project iterates fast, sometimes you need to clean the project if you are coming back to the project
-pnpm clean
-```
+Set up environment variables:
+Create a .env file and configure it as follows:
 
-### Interact via Browser
+TELEGRAM_BOT_TOKEN=your_bot_token
+DATABASE_URL=your_database_url
+EIGENLAYER_API_KEY=your_eigenlayer_api_key
 
-Once the agent is running, you should see the message to run "pnpm start:client" at the end.
+Start the server:
 
-Open another terminal, move to the same directory, run the command below, then follow the URL to chat with your agent.
+pnpm start --character="characters/eigenvault.character.json"
 
-```bash
-pnpm start:client
-```
+Usage 📌
 
-Then read the [Documentation](https://elizaos.github.io/eliza/) to learn how to customize your Eliza.
+Start the bot: Find the bot on Telegram and start a conversation.
 
----
+Upload a document: Send a document to the bot.
 
-### Automatically Start Eliza
+Transaction Verification: The bot verifies the document storage through EigenLayer AVS.
 
-The start script provides an automated way to set up and run Eliza:
+Retrieve a document: Request a document using commands like /getdocument <document_id>.
 
-```bash
-sh scripts/start.sh
-```
+Future Improvements 🚀
 
-For detailed instructions on using the start script, including character management and troubleshooting, see our [Start Script Guide](./docs/docs/guides/start-script.md).
+Enhanced AI processing for document categorization.
 
-> **Note**: The start script handles all dependencies, environment setup, and character management automatically.
+Support for additional storage options (IPFS, Arweave, etc.).
 
----
+Multi-user access controls.
 
-### Modify Character
+Contributing 🤝
 
-1. Open `packages/core/src/defaultCharacter.ts` to modify the default character. Uncomment and edit.
+Contributions are welcome! Feel free to submit issues and pull requests.
 
-2. To load custom characters:
-    - Use `pnpm start --characters="path/to/your/character.json"`
-    - Multiple character files can be loaded simultaneously
-3. Connect with X (Twitter)
-    - change `"clients": []` to `"clients": ["twitter"]` in the character file to connect with X
+License 📜
 
----
-
-#### Additional Requirements
-
-You may need to install Sharp. If you see an error when starting up, try installing it with the following command:
-
-```
-pnpm install --include=optional sharp
-```
-
----
-
-### Start Eliza with Gitpod
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/elizaos/eliza/tree/main)
-
----
-
-### Deploy Eliza in one click 
-
-Use [Fleek](https://fleek.xyz/eliza/) to deploy Eliza in one click. This opens Eliza to non-developers and provides the following options to build your agent:
-1. Start with a template
-2. Build characterfile from scratch
-3. Upload pre-made characterfile
-
-Click [here](https://fleek.xyz/eliza/) to get started!
-
----
-
-### Community & contact
-
-- [GitHub Issues](https://github.com/elizaos/eliza/issues). Best for: bugs you encounter using Eliza, and feature proposals.
-- [Discord](https://discord.gg/ai16z). Best for: sharing your applications and hanging out with the community.
-
-## Citation
-
-We now have a [paper](https://arxiv.org/pdf/2501.06781) you can cite for the Eliza OS:
-```bibtex
-@article{walters2025eliza,
-  title={Eliza: A Web3 friendly AI Agent Operating System},
-  author={Walters, Shaw and Gao, Sam and Nerd, Shakker and Da, Feng and Williams, Warren and Meng, Ting-Chien and Han, Hunter and He, Frank and Zhang, Allen and Wu, Ming and others},
-  journal={arXiv preprint arXiv:2501.06781},
-  year={2025}
-}
-```
-
-## Contributors
-
-<a href="https://github.com/elizaos/eliza/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=elizaos/eliza" alt="Eliza project contributors" />
-</a>
-
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=elizaos/eliza&type=Date)](https://star-history.com/#elizaos/eliza&Date)
+This project is licensed under the MIT License.
